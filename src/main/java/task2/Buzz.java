@@ -16,10 +16,14 @@ public class Buzz extends Thread implements MyProducer {
         return updated;
     }
 
+    @Override
+    public void inter(boolean bool) {
+        this.stop = bool;
+    }
 
     @Override
-    public void run()  {
-        while (n<16) {
+    public void run() {
+        while (!stop) {
             try {
                 if (updated) {
                     updated = false;

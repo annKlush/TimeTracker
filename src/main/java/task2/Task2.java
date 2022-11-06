@@ -2,6 +2,7 @@ package task2;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Task2 {
     public static void main(String[] args) throws InterruptedException {
@@ -31,8 +32,14 @@ public class Task2 {
         Thread.sleep(200);
 
         System.out.println("Done");
+        Thread.interrupted();
+        fizz.inter(true);
+        numb.inter(true);
+        buzz.inter(true);
+        fizzbuzz.inter(true);
+        executor.awaitTermination(1, TimeUnit.SECONDS);
         executor.shutdownNow();
-}
     }
+}
 
 
